@@ -39,7 +39,7 @@ Worker.template.opt.pagebreak = {
 Worker.prototype.toContainer = function toContainer() {
   return orig.toContainer.call(this).then(function toContainer_pagebreak() {
     // Setup root element and inner page height.
-	  console.log(this);
+	  console.log(this.opt);
     var root = this.prop.container;
     var pxPageHeight = this.prop.pageSize.inner.px.height + 10 + 10;
 
