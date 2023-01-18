@@ -127,7 +127,7 @@ Worker.prototype.toContainer = function toContainer() {
       if (rules.after) {
         var pad = createElement('div', {style: {
           display: 'block',
-          height: pxPageHeight - (clientRect.bottom % pxPageHeight) + 'px'
+          height: pxPageHeight + 10 - (clientRect.bottom % pxPageHeight) + 'px'
         }});
         el.parentNode.insertBefore(pad, el.nextSibling);
       }

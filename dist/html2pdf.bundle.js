@@ -1520,7 +1520,7 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function
         var pad = (0,_utils_js__WEBPACK_IMPORTED_MODULE_6__.createElement)('div', {
           style: {
             display: 'block',
-            height: pxPageHeight - clientRect.bottom % pxPageHeight + 'px'
+            height: pxPageHeight + 10 - clientRect.bottom % pxPageHeight + 'px'
           }
         });
         el.parentNode.insertBefore(pad, el.nextSibling);
