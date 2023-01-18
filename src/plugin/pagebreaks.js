@@ -40,6 +40,7 @@ Worker.prototype.toContainer = function toContainer() {
   return orig.toContainer.call(this).then(function toContainer_pagebreak() {
     // Setup root element and inner page height.
 	  console.log(this.prop);
+	var margin = this.prop.pageSize.margin;
     var root = this.prop.container;
     var pxPageHeight = this.prop.pageSize.inner.px.height;
 
@@ -117,7 +118,7 @@ Worker.prototype.toContainer = function toContainer() {
       if (rules.before) {
         var pad = createElement('div', {style: {
           display: 'block',
-          height: pxPageHeight - (clientRect.top % pxPageHeight) + 'px'
+          height: pxPageHeight + margin - (clientRect.top % pxPageHeight) + 'px'
         }});
         el.parentNode.insertBefore(pad, el);
       }
