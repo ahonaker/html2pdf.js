@@ -1437,6 +1437,7 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.template.opt.pagebreak = {
 _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function toContainer() {
   return orig.toContainer.call(this).then(function toContainer_pagebreak() {
     // Setup root element and inner page height.
+    console.log(this.prop);
     var root = this.prop.container;
     var pxPageHeight = this.prop.pageSize.inner.px.height; // Check all requested modes.
 
@@ -1504,7 +1505,6 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function
 
 
       if (rules.before) {
-        console.log(this.prop);
         var pad = (0,_utils_js__WEBPACK_IMPORTED_MODULE_6__.createElement)('div', {
           style: {
             display: 'block',

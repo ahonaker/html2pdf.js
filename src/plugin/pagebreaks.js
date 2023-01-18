@@ -39,6 +39,7 @@ Worker.template.opt.pagebreak = {
 Worker.prototype.toContainer = function toContainer() {
   return orig.toContainer.call(this).then(function toContainer_pagebreak() {
     // Setup root element and inner page height.
+	  console.log(this.prop);
     var root = this.prop.container;
     var pxPageHeight = this.prop.pageSize.inner.px.height;
 
@@ -114,7 +115,6 @@ Worker.prototype.toContainer = function toContainer() {
 
       // Before: Create a padding div to push the element to the next page.
       if (rules.before) {
-		  console.log(this.prop);
         var pad = createElement('div', {style: {
           display: 'block',
           height: pxPageHeight - (clientRect.top % pxPageHeight) + 'px'
