@@ -40,7 +40,9 @@ Worker.prototype.toContainer = function toContainer() {
   return orig.toContainer.call(this).then(function toContainer_pagebreak() {
     // Setup root element and inner page height.
     var root = this.prop.container;
-    var pxPageHeight = this.prop.pageSize.inner.px.height + this.opt.margin[0] + this.opt.margin[2];
+	var marginTop = this.opt.margin[0];
+	var marginBot = this.opt.margin[2]
+    var pxPageHeight = this.prop.pageSize.inner.px.height + marginTop + marginBot;
 
     // Check all requested modes.
     var modeSrc = [].concat(this.opt.pagebreak.mode);
@@ -125,7 +127,7 @@ Worker.prototype.toContainer = function toContainer() {
       if (rules.after) {
         var pad = createElement('div', {style: {
           display: 'block',
-          height: pxPageHeight + this.opt.margin[2] - (clientRect.bottom % pxPageHeight) + 'px'
+          height: pxPageHeight + marginBot - (clientRect.bottom % pxPageHeight) + 'px'
         }});
         el.parentNode.insertBefore(pad, el.nextSibling);
       }
