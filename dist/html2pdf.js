@@ -341,10 +341,8 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.template.opt.pagebreak = {
 _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function toContainer() {
   return orig.toContainer.call(this).then(function toContainer_pagebreak() {
     // Setup root element and inner page height.
-    console.log(this.prop);
-    var margin = this.prop.pageSize.margin;
     var root = this.prop.container;
-    var pxPageHeight = this.prop.pageSize.inner.px.height + 20; // Check all requested modes.
+    var pxPageHeight = this.prop.pageSize.inner.px.height + this.opt.margin[0] + this.opt.margin[2]; // Check all requested modes.
 
     var modeSrc = [].concat(this.opt.pagebreak.mode);
     var mode = {
@@ -424,7 +422,7 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function
         var pad = (0,_utils_js__WEBPACK_IMPORTED_MODULE_6__.createElement)('div', {
           style: {
             display: 'block',
-            height: pxPageHeight + 10 - clientRect.bottom % pxPageHeight + 'px'
+            height: pxPageHeight + this.opt.margin[3] - clientRect.bottom % pxPageHeight + 'px'
           }
         });
         el.parentNode.insertBefore(pad, el.nextSibling);
