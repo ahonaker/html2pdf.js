@@ -1440,7 +1440,7 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function
     console.log(this.prop);
     var margin = this.prop.pageSize.margin;
     var root = this.prop.container;
-    var pxPageHeight = this.prop.pageSize.inner.px.height; // Check all requested modes.
+    var pxPageHeight = this.prop.pageSize.inner.px.height - 20; // Check all requested modes.
 
     var modeSrc = [].concat(this.opt.pagebreak.mode);
     var mode = {
@@ -1509,7 +1509,7 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function
         var pad = (0,_utils_js__WEBPACK_IMPORTED_MODULE_6__.createElement)('div', {
           style: {
             display: 'block',
-            height: pxPageHeight - 10 - clientRect.top % pxPageHeight + 'px'
+            height: pxPageHeight - clientRect.top % pxPageHeight + 'px'
           }
         });
         el.parentNode.insertBefore(pad, el);

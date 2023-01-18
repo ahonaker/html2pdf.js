@@ -42,7 +42,7 @@ Worker.prototype.toContainer = function toContainer() {
 	  console.log(this.prop);
 	var margin = this.prop.pageSize.margin;
     var root = this.prop.container;
-    var pxPageHeight = this.prop.pageSize.inner.px.height;
+    var pxPageHeight = this.prop.pageSize.inner.px.height - 20;
 
     // Check all requested modes.
     var modeSrc = [].concat(this.opt.pagebreak.mode);
@@ -118,7 +118,7 @@ Worker.prototype.toContainer = function toContainer() {
       if (rules.before) {
         var pad = createElement('div', {style: {
           display: 'block',
-          height: pxPageHeight - 10 - (clientRect.top % pxPageHeight) + 'px'
+          height: pxPageHeight - (clientRect.top % pxPageHeight) + 'px'
         }});
         el.parentNode.insertBefore(pad, el);
       }
