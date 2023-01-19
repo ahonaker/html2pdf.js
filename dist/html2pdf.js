@@ -418,7 +418,7 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function
           }
         });
         el.parentNode.insertBefore(pad, el);
-        marginTopAddition += 6;
+        marginTopAddition += 5;
       } // After: Create a padding div to fill the remaining page.
 
 
