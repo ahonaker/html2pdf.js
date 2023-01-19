@@ -41,7 +41,8 @@ Worker.prototype.toContainer = function toContainer() {
     // Setup root element and inner page height.
     var root = this.prop.container;
 	var marginTop = this.opt.margin[0];
-	var marginBot = this.opt.margin[2] + 4;
+	var marginBot = this.opt.margin[2];
+	var mnarginBotAddition = 0;
     var pxPageHeight = this.prop.pageSize.inner.px.height + marginTop + marginBot;
 
     // Check all requested modes.
@@ -130,6 +131,7 @@ Worker.prototype.toContainer = function toContainer() {
           height: pxPageHeight + marginBot - (clientRect.bottom % pxPageHeight) + 'px'
         }});
         el.parentNode.insertBefore(pad, el.nextSibling);
+		marginBotAddition += 4;
       }
     });
   });

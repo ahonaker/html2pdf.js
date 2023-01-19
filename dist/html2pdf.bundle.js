@@ -1439,7 +1439,8 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function
     // Setup root element and inner page height.
     var root = this.prop.container;
     var marginTop = this.opt.margin[0];
-    var marginBot = this.opt.margin[2] + 4;
+    var marginBot = this.opt.margin[2];
+    var mnarginBotAddition = 0;
     var pxPageHeight = this.prop.pageSize.inner.px.height + marginTop + marginBot; // Check all requested modes.
 
     var modeSrc = [].concat(this.opt.pagebreak.mode);
@@ -1524,6 +1525,7 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function
           }
         });
         el.parentNode.insertBefore(pad, el.nextSibling);
+        marginBotAddition += 4;
       }
     });
   });
