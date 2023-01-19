@@ -128,10 +128,10 @@ Worker.prototype.toContainer = function toContainer() {
       if (rules.after) {
         var pad = createElement('div', {style: {
           display: 'block',
-          height: pxPageHeight + marginBot - (clientRect.bottom % pxPageHeight) + 'px'
+          height: pxPageHeight + marginBot + mnarginBotAddition - (clientRect.bottom % pxPageHeight) + 'px'
         }});
         el.parentNode.insertBefore(pad, el.nextSibling);
-		marginBotAddition += 4;
+		mnarginBotAddition += 4;
       }
     });
   });
