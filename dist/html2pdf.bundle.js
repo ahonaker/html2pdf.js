@@ -1440,7 +1440,7 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function
     var root = this.prop.container;
     var marginTop = this.opt.margin[0];
     var marginBot = this.opt.margin[2];
-    var mnarginBotAddition = 0;
+    var marginTopAddition = 0;
     var pxPageHeight = this.prop.pageSize.inner.px.height + marginTop + marginBot; // Check all requested modes.
 
     var modeSrc = [].concat(this.opt.pagebreak.mode);
@@ -1510,10 +1510,11 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function
         var pad = (0,_utils_js__WEBPACK_IMPORTED_MODULE_6__.createElement)('div', {
           style: {
             display: 'block',
-            height: pxPageHeight + marginTop - clientRect.top % pxPageHeight + 'px'
+            height: pxPageHeight + marginTop + marginTopAddition - clientRect.top % pxPageHeight + 'px'
           }
         });
         el.parentNode.insertBefore(pad, el);
+        marginTopAddition += 4;
       } // After: Create a padding div to fill the remaining page.
 
 
@@ -1521,11 +1522,10 @@ _worker_js__WEBPACK_IMPORTED_MODULE_5__.default.prototype.toContainer = function
         var pad = (0,_utils_js__WEBPACK_IMPORTED_MODULE_6__.createElement)('div', {
           style: {
             display: 'block',
-            height: pxPageHeight + marginBot + mnarginBotAddition - clientRect.bottom % pxPageHeight + 'px'
+            height: pxPageHeight + marginBot - clientRect.bottom % pxPageHeight + 'px'
           }
         });
         el.parentNode.insertBefore(pad, el.nextSibling);
-        mnarginBotAddition += 4;
       }
     });
   });

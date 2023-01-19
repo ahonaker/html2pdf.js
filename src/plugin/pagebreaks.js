@@ -42,7 +42,7 @@ Worker.prototype.toContainer = function toContainer() {
     var root = this.prop.container;
 	var marginTop = this.opt.margin[0];
 	var marginBot = this.opt.margin[2];
-	var mnarginBotAddition = 0;
+	var marginTopAddition = 0;
     var pxPageHeight = this.prop.pageSize.inner.px.height + marginTop + marginBot;
 
     // Check all requested modes.
@@ -119,19 +119,19 @@ Worker.prototype.toContainer = function toContainer() {
       if (rules.before) {
         var pad = createElement('div', {style: {
           display: 'block',
-          height: pxPageHeight + marginTop - (clientRect.top % pxPageHeight) + 'px'
+          height: pxPageHeight + marginTop + marginTopAddition - (clientRect.top % pxPageHeight) + 'px'
         }});
         el.parentNode.insertBefore(pad, el);
+		marginTopAddition += 4;
       }
 
       // After: Create a padding div to fill the remaining page.
       if (rules.after) {
         var pad = createElement('div', {style: {
           display: 'block',
-          height: pxPageHeight + marginBot + mnarginBotAddition - (clientRect.bottom % pxPageHeight) + 'px'
+          height: pxPageHeight + marginBot - (clientRect.bottom % pxPageHeight) + 'px'
         }});
         el.parentNode.insertBefore(pad, el.nextSibling);
-		mnarginBotAddition += 4;
       }
     });
   });
