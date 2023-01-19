@@ -122,7 +122,7 @@ Worker.prototype.toContainer = function toContainer() {
           height: pxPageHeight + marginTop + marginTopAddition - (clientRect.top % pxPageHeight) + 'px'
         }});
         el.parentNode.insertBefore(pad, el);
-		marginTopAddition += 4;
+		marginTopAddition += 6;
       }
 
       // After: Create a padding div to fill the remaining page.
